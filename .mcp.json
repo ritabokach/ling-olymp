@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "tavily-research": {
+      "command": "sh",
+      "args": [
+        "-c",
+        "exec bash \"${CLAUDE_PROJECT_DIR:-.}/.claude/scripts/tavily-mcp.sh\""
+      ]
+    }
+  }
+}

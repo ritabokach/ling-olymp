@@ -1,0 +1,28 @@
+---
+name: night-stop
+description: Stop night mode early and get the morning report. Adapted from coordinator-yolo-stop. Use when the user wakes up / wants to stop the night run and see what was done (interrupt the run with Esc first, then /night-stop).
+when_to_use: "Invoke when the user says «стоп ночь», «останови ночную работу», «я проснулась», «я проснулся», «что сделал за ночь» during or after a night run."
+---
+
+# Skill: /night-stop
+
+Stop the night run and report. Rules: `.claude/skills/night/rails.md`.
+
+## Steps
+
+1. **Stop**: start nothing new. Current task not green → roll it back on the night branch
+   (rails → rail 4: `git restore --staged --worktree . && git clean -fd -e swarm-report/`),
+   log `❌ stopped by user`, commit the log.
+2. **End of night** — rails → "End of night": defrag (own branch + PR), morning report,
+   marker removed from both checkouts, `ExitWorktree` keep.
+3. **Show the user**: short summary + report path + branch + worktree path, and:
+   ```bash
+   git diff --stat main...<night-branch>
+   git log --oneline main..<night-branch>
+   ```
+   Then ask the report's questions in chat — rails → "End of night" step 6
+   (`AskUserQuestion` forms, ≤4 questions each, options with плюсы / минусы).
+
+## Invariant
+Only stops, runs defrag and reports. No merge, `main` untouched; the only push is the
+defrag branch.

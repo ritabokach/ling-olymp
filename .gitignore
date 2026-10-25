@@ -1,0 +1,15 @@
+
+# harness
+.claude/sessions/
+.claude/state/
+.claude/worktrees/
+.env
+*.transcribe.json
+.DS_Store
+.ast-index-root
+
+# python
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/

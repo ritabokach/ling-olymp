@@ -21,7 +21,7 @@ flowchart LR
   api -. phase 2 .-> llm[LLM API]
 ```
 
-- `core/` не знает про веб и БД.
+- `lingpuzzle.core` (`src/lingpuzzle/core/`) не знает про веб и БД.
 - `api/` выдаёт задачу, принимает ответ, засекает время, ведёт рейтинг.
 
 ## Почему ядро без LLM
@@ -36,7 +36,7 @@ flowchart LR
 | Агент | Роль |
 |---|---|
 | planner, skeptic | план фичи и его критика (`/plan`) |
-| python-core | пишет `core/**`, `tests/core/**`, `pyproject.toml` (`/build`) |
+| python-core | пишет `src/lingpuzzle/core/**`, `tests/core/**`, `pyproject.toml`, `.github/workflows/**` (`/build`) |
 | reviewer | ревью диффа против плана (`/review`, включает `/mutation`) |
 | debugger | поиск причины бага с красным тестом (`/debug`) |
 

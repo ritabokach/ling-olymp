@@ -5,15 +5,26 @@
 ## Структура репозитория
 
 ```
-core/          генератор и решатель, без зависимостей от веба
-api/           FastAPI
-web/           frontend
-tests/core/    pytest для core/
-tests/api/     pytest для api/
-swarm-report/  планы, отчёты харнесса
+src/lingpuzzle/
+  core/
+    common/      общее для всех типов задач: генератор слов, модель задачи
+    numerals/    системы счёта: язык, число → запись, решатель, генератор
+  api/           FastAPI (этап 2)
+web/             frontend (этап 2)
+tests/core/      pytest для ядра, зеркалит core/
+tests/api/       pytest для API (этап 2)
+.github/workflows/  CI: pytest + ruff
+swarm-report/    планы, отчёты харнесса
 ```
 
-`core/` — отдельный модуль. Его можно тестировать и использовать независимо от `api/` и `web/`.
+- `lingpuzzle.core` не импортирует `lingpuzzle.api` и веб. Его можно тестировать и использовать отдельно.
+- Новый тип задачи — новая папка рядом с `numerals/` (`morphology/`, `scripts/`, `kinship/`).
+- Имя пакета `lingpuzzle` не зависит от названия продукта: переименование проекта меняет только `pyproject.toml` (`name`), README и репо.
+
+## Инструменты
+
+- ruff — линтер и форматтер, настройки в `pyproject.toml`.
+- GitHub Actions — pytest и ruff на каждый push, Python 3.12 и 3.14.
 
 ## Коммиты
 

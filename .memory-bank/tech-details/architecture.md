@@ -37,6 +37,7 @@ flowchart LR
 |---|---|
 | planner, skeptic | план фичи и его критика (`/plan`) |
 | python-core | пишет `src/lingpuzzle/core/**`, `tests/core/**`, `pyproject.toml`, `.github/workflows/**` (`/build`) |
+| docs | пишет `README.md`, `LICENSE`, `docs/**` (`/build`) |
 | reviewer | ревью диффа против плана (`/review`, включает `/mutation`) |
 | debugger | поиск причины бага с красным тестом (`/debug`) |
 

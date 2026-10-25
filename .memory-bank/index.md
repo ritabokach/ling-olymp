@@ -1,6 +1,6 @@
 # Memory Bank — ling-olymp
 
-> Источник правды о проекте. Читать первым. Решения из `docs/decisions.md` важнее текста здесь.
+> Источник правды о проекте. Читать первым. Решения из `decisions.md` важнее текста здесь.
 
 ## Проект
 
@@ -10,6 +10,7 @@
 - **Стек:** Python 3.12+, pytest, FastAPI, SQLite → PostgreSQL, Docker + VPS. Frontend ещё не выбран.
 - **Репо:** GitHub `ritabokach/ling-olymp`, ветка `main`.
 - **Автор:** Маргарита. Проект для резюме backend / AI Engineer и для того, чтобы самой разобраться в устройстве.
+- **Как идёт работа:** автономно через харнесс (`AGENTS.md`): `/day`, `/night`, `/plan → /build → /review → /debug`. Исполнитель ядра — агент `python-core`.
 
 ## Где смотреть
 
@@ -21,4 +22,6 @@
 - Модель задачи «система счёта», решатель, критерий однозначности → `tech-details/numeral-puzzle-model.md`
 - План по месяцам и MVP → `tasks/roadmap.md`
 - Текущая задача и открытые вопросы → `tasks/current.md`
-- Журнал архитектурных решений → `../docs/decisions.md` (ещё не создан)
+- Журнал решений → `decisions.md`
+- Правила харнесса, агенты, режимы → `../AGENTS.md`
+- Планы и отчёты харнесса → `../swarm-report/`

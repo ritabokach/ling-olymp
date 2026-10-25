@@ -144,6 +144,7 @@ agents, in parallel when a feature spans several layers. Add agents only with `/
 | Agent | Scope (globs) | Test command | Signal files |
 |-------|---------------|--------------|--------------|
 | python-core | `src/lingpuzzle/__init__.py`, `src/lingpuzzle/core/**`, `tests/core/**`, `pyproject.toml`, `.github/workflows/**` | `.venv/bin/python -m pytest -q` | `pyproject.toml` |
+| docs | `README.md`, `LICENSE`, `docs/**` | `.venv/bin/python -m pytest -q` | `README.md` |
 
 A file no agent covers → `/plan` lists it under Blockers; the user picks `/new-agent` or
 `general-purpose` at the after-plan checkpoint.
